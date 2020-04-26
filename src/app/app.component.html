@@ -1,0 +1,95 @@
+<section>
+
+<section fxLayoutAlign='center center' class='container'>
+  <div fxLayout='column'  class="mat-elevation-z8 container-head" >
+    <div fxLayoutAlign='center center' class='logo'>
+      <span>Welcome to </span>&nbsp; <span class='vimeo'>Vimeo</span>
+    </div>
+    <div class='profile'>
+      <span>
+        Hi John Willson,
+      </span>
+    </div>
+    <div style='height:1px;color:lightgray'></div>
+    <div fxLayout='row' fxLayoutAlign="space-between center">
+      <div fxLayout='column' style='padding:10px;'>
+        <span class='label'>
+          Account No:
+        </span>
+        <span class='label-value'>
+          {{accountNo}}
+        </span>
+      </div>
+      <div fxLayoutAlign='end center'>
+        <div fxLayout='column'  style='padding:10px;'>
+          <span class='label'>
+            Available Balance:
+          </span>
+          <span class='label-value'>
+            <i class="fas fa-rupee-sign"></i>&nbsp; {{balance}}
+          </span>
+        </div>
+  
+      </div>
+    </div>
+    <div fxLayoutAlign='center center' fxLayoutGap='20px'>
+      <span class='account-head'>
+        Account Statement
+      </span>
+      
+    </div>
+    <div style='padding:10px;max-width:25%;margin:20px 0'>
+      <mat-form-field >
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Transaction">
+      </mat-form-field>
+      
+    </div>
+  
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="Date" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex='10'> Date </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex='10'> {{row.Date}} </mat-cell>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="Transaction Details" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex='35'> Transaction Details </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex='35'> {{row['Transaction Details']}}</mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Value Date" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex='10'> Value Date </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex='10'> {{row['Value Date']}} </mat-cell>
+      </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="Withdrawal AMT" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex='15'> Withdrawal </mat-header-cell>
+            <mat-cell *matCellDef="let row"  fxFlex='15' fxLayoutAlign='end center'><i *ngIf="row['Withdrawal AMT']" class="fas fa-rupee-sign"></i>&nbsp; {{row['Withdrawal AMT']}} </mat-cell>
+          </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="Deposit AMT" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header  fxFlex='15'> Deposit </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex='15' fxLayoutAlign='end center'> <i *ngIf="row['Deposit AMT']" class="fas fa-rupee-sign"></i>&nbsp; {{row['Deposit AMT']}} </mat-cell>
+      </ng-container>
+      
+      <!-- Color Column -->
+      <ng-container matColumnDef="Balance AMT" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header  fxFlex='15'> Balance </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex='15' fxLayoutAlign='end center'> <i *ngIf="row['Balance AMT']" class="fas fa-rupee-sign"></i> &nbsp; {{row['Balance AMT']}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+     </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+ 
+  </section>
+</section>

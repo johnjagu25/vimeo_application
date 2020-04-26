@@ -1,0 +1,62 @@
+table {
+    width: 100%;
+  }
+
+  .container{
+    background: lightgrey;
+      width: 100%;
+      .container-head{
+        background: white;
+          width:90%;
+      }
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .vimeo{
+    color: #86dcef;
+  }
+  .logo{
+    height: 60px;
+
+    font-size: 40px;
+}
+.profile{
+    font-size: 20px;
+    padding: 10px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+  
+.label{
+    font-size: 18px;
+    font-weight: 400;
+    color: gray;
+}
+  .label-value{
+      font-size:20px;
+      color:black
+  }
+
+  .mat-header-row{
+      background:lightseagreen;
+      .mat-header-cell{
+          color: white;
+          font-size:16px;
+      }
+  }
+
+  .account-head{
+    font-size: 20px;
+    background: lightcoral;
+    color: white;
+    padding: 20px;
+    border-radius: 50px;
+  }
